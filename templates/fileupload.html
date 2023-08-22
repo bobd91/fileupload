@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8" />
+        <title>File Upload</title>
+    </head>
+    <body>
+        <h1>File Upload</h1>
+
+        <!-- Flask flash stuff, should probably be in a separate template -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Display upload form -->
+        <form method="POST" action="" enctype="multipart/form-data">
+            <p><input type="file" name="file" 
+                                  accept="{{ ALLOW_FILETYPES }}">
+            </p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    </body>
+</html>
